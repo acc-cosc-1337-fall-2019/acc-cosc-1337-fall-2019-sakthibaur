@@ -29,6 +29,25 @@ s
 t
 */
 
+void loop_string_w_auto(std::string str)
+{
+	//not modifiable
+	for (auto ch : str) 
+	{
+		ch = 'j';
+		std::cout << ch << "\n";
+	}
+}
+
+//void loop_string_w_auto(std::string str)
+//{
+	//modifiable
+	//for (auto &ch : str)
+	//{
+		//ch = 'j';
+		//std::cout << ch << "\n";
+	//}
+//}
 
 void loop_vector_w_index() 
 {
@@ -39,4 +58,3 @@ void loop_vector_w_index()
 		std::cout << nums[i] << "\n";
 	}
 }
-

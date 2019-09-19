@@ -10,3 +10,14 @@ returns 120
 
 DON'T FORGET TO WRITE TEST CASE.  See file loop_test.cpp
 */
+int factorial(int num)
+{
+	int i = 1;
+	int factorial = 1;
+	while (i<=num)
+	{
+		factorial *= i;
+		i++;
+	}
+	return factorial;
+}
