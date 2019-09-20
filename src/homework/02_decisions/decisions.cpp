@@ -82,7 +82,6 @@ string get_letter_grade_using_switch(int grade)
 	switch (grade/10)
 	{
 	case 10:
-		return "A";
 	case 9:
 		return "A";
 	case 8:
@@ -91,8 +90,15 @@ string get_letter_grade_using_switch(int grade)
 		return "C";
 	case 6:
 		return "D";
-	default:
+	case 5:
+	case 4:
+	case 3:
+	case 2:
+	case 1:
+	case 0:
 		return "F";
+	default:
+		return "Invalid";
 	}
 }
 
