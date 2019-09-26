@@ -11,12 +11,10 @@ double get_gc_content(const string & dna)
 {
 	double gc_count = 0;
 	double gc_content = 0;
-	double letter_count = 0;
+	double letter_count = dna.size();
 
 	for (char ch : dna)
 	{
-		++letter_count;
-
 		if (ch == 'C' || ch == 'G')
 		{
 			++gc_count;
@@ -34,9 +32,13 @@ accepts a string parameter and returns a string reversed.
 
 string get_reverse_string(string dna)
 {
-	reverse(dna.begin(), dna.end());
-	
-	return dna;
+	//reverse(dna.begin(), dna.end());
+	string rev_dna = "";
+	for (int i = dna.size() - 1; i >= 0; --i)
+	{
+		rev_dna.push_back(dna[i]);
+	}
+	return rev_dna;
 }
 
 
