@@ -83,3 +83,11 @@ void loop_vector_w_for_ranged_ref_var(std::vector<int>& nums)
 		std::cout << num << "\n";
 	}
 }
+
+std::vector<int> ret_vec_int()
+{
+	std::vector<int> my_vector(9, 2);
+	//add more vales to the vector, use pushback function
+	my_vector.push_back(3);
+	return my_vector;
+}
