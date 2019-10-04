@@ -16,7 +16,6 @@ Program continues until user decides to exit.
 */
 int main() 
 {
-	vector<int> sample_vec = { 8, 4, 20, 88, 66, 99 };
 	auto user_choice = 'y';
 	int choice;
 	int number;
@@ -26,10 +25,11 @@ int main()
 	do
 	{
 
-		cout << "Enter 1 to get max from vector, 2 to get primes, anything to quit: ";
+		cout << "Enter 1 to get max from vector, 2 to get primes, or type anything to quit: ";
 		cin >> choice;
 		if (choice == 1)
 		{
+			vector<int> sample_vec = { 8, 4, 20, 88, 66, 99 };
 			cout << "The max from vector is " << get_max_from_vector(sample_vec);
 		}
 		else if (choice==2)
@@ -42,6 +42,11 @@ int main()
 			{
 				cout << num << " ";
 			}
+		}
+		else
+		{
+			cout << "Goodbye";
+			return 0;
 		}
 		cout << "\nContinue y or n: ";
 		cin >> user_choice;

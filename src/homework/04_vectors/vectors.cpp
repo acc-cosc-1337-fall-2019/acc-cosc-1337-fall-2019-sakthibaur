@@ -60,8 +60,7 @@ number is prime.
 vector<int> vector_of_primes(int integer)
 {
 	vector<int> vec_primes;
-	int i = 2;
-	for (int i = 2; i < integer; ++i)
+	for (int i = 2; i <= integer; ++i)
 	{
 		if (is_prime(i))
 		{
