@@ -19,8 +19,10 @@ double get_gc_content(const string & dna)
 		{
 			++gc_count;
 		}
-		gc_content = gc_count / letter_count;
+		
 	}
+
+	gc_content = gc_count / letter_count;
 	return gc_content;
 }
 
