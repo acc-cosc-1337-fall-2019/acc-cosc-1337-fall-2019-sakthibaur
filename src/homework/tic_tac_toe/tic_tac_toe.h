@@ -2,7 +2,7 @@
 #include<vector>
 #include<iostream>
 
-using std::string; using std::vector; using cout;
+using std::string; using std::vector; using std::cout; using std::cin;
 //h
 
 class TicTacToe
@@ -20,6 +20,6 @@ private:
 	bool check_diagonal_win();
 	void clear_board();
 	bool check_board_full();
-	vector<string> pegs(9, " ");
+	vector<string> pegs{ 9, " " };
 	string next_player;
 };
