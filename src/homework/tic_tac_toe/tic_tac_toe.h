@@ -1,3 +1,6 @@
+#ifndef TIC_TAC_TOE_H
+#define TIC_TAC_TOE_H
+
 #include<string>
 #include<vector>
 #include<iostream>
@@ -23,3 +26,5 @@ private:
 	vector<string> pegs{ 9, " " };
 	string next_player;
 };
+
+#endif

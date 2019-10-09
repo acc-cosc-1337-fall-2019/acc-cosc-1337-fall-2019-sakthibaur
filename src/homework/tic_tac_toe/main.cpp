@@ -12,15 +12,11 @@ int main()
 		TicTacToe game;
 		cout << "Beginning player enter X or O: ";
 		cin >> player;
-		//check player selection
-		if (player == "X" || player == "O")
+		//check player selection, change to while loop?
+		while (player != "X" && player != "O")
 		{
-			game.start_game(player);
-		}
-		else
-		{
-			cout << "Invalid selection. Starting with player X\n";
-			player = "X";
+			cout << "Invalid player selection. Please enter X or O: ";
+			cin >> player;
 		}
 		//start game
 		game.start_game(player);
@@ -30,7 +26,11 @@ int main()
 			game.display_board();
 			cout << "Enter position for " << game.get_player() << ": ";
 			cin >> position;
-			//write code to check if position entered is valid?
+			while (position < 1 || position > 9)
+			{
+				cout << "Invalid position. Please enter a number 1-9: ";
+				cin >> position;
+			}
 			game.mark_board(position);
 
 		} while (game.game_over() == false);
