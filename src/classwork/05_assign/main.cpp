@@ -21,15 +21,13 @@ int main()
 	rectangles.push_back(acc::Rectangle(10, 10));
 	rectangles.push_back(acc::Rectangle(100, 10));
 	int total_area = 0;
-	acc::Rectangle r(5, 4);
 	for (auto rec : rectangles)
 	{
-		cout << "Area: " << rec.get_area() << "\n";
+		//cout << "Area: " << rec.get_area() << "\n";
 		total_area = total_area + rec.get_area();
+		cout << rec;
 	}
-	cout << "Area: " << total_area << "\n";
-
-	cout << r;
+	cout << "Total area: " << total_area << "\n";
 
 	return 0;
 }

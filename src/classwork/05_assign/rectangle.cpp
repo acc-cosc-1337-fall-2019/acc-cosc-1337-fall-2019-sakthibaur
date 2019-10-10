@@ -23,6 +23,6 @@ int acc::Rectangle::get_area() const
 
 std::ostream & acc::operator<<(std::ostream & out, const Rectangle & r)
 {
-	out << "Area of rectangle: " << r.area << "\n";
+	out << "Area: " << r.area << "\n";
 	return out;
 }
