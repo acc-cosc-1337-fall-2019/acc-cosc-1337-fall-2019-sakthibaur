@@ -1,4 +1,5 @@
 #include "tic_tac_toe.h"
+#include<algorithm>
 //cpp
 
 void TicTacToe::set_next_player()
