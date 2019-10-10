@@ -5,8 +5,6 @@ int main()
 	auto user_choice = 1;
 	int position;
 	string player;
-	vector<int> valid_pos = { 1,2,3,4,5,6,7,8,9 };
-	bool valid;
 
 	do
 	{
@@ -28,8 +26,8 @@ int main()
 			game.display_board();
 			cout << "Enter position for " << game.get_player() << ": ";
 			cin >> position;
-			//validates ints but not any other kind of input
-			while (position < 1 || position > 9) 
+
+			while (position < 1 || position > 9)
 			{
 				cout << "Invalid position. Please enter a number 1-9: ";
 				cin >> position;
