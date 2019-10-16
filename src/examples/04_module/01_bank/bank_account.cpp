@@ -30,6 +30,14 @@ void BankAccount::withdraw(int amount)
 	}
 }
 
+BankAccount BankAccount::operator+(const BankAccount & b)
+{
+	BankAccount account;
+	account.balance = balance + b.balance;
+
+	return account;
+}
+
 void display(const BankAccount & account)
 {
 	std::cout << "Balance: "<< account.balance << "\n";

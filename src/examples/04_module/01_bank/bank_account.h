@@ -15,7 +15,7 @@ public:
 	friend void display(const BankAccount& account);
 	friend std::ostream & operator << (std::ostream & out, const BankAccount & b);
 	friend std::istream & operator >>(std::istream&in, BankAccount & b);//no const bc we have to be able to modify the data
-
+	BankAccount operator+(const BankAccount& b);
 protected:
 	int balance;
 

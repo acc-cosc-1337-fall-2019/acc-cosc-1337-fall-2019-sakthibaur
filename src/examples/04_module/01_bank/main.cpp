@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include"checking_account.h"
+#include "savings_account.h"
 //#include "bank_account.h"
 //#include "atm.h"
 //#include "customer.h"
@@ -11,13 +12,24 @@ using std::vector;
 int main()
 {
 	CheckingAccount a(1500);
-	cout << a.get_balance();
+	cout << a;
 
+	SavingsAccount savings(500);
+	cout << "Calls bank account overload ostream"<<savings;
+	cout<<"\n Savings get_balance" << savings.get_balance()<<"\n";
+	savings.add_interest();
+	cout << savings;
+
+	BankAccount c = a + savings;
+	cout << c;
 	return 0;
 
 
 
 	//code from older examples below-
+	//cout << a.get_balance();
+		//CheckingAccount b(1500);
+		//CheckingAccount c = a + b;
 	//BankAccount(1500);
 	//CheckingAccount a(1000);
 	//Customer customer;
