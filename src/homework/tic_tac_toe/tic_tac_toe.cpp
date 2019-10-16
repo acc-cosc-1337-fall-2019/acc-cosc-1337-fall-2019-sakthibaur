@@ -93,17 +93,36 @@ string TicTacToe::get_player() const
 }
 
 
-void TicTacToe::display_board() const
+
+ostream & operator<<(ostream & out, const TicTacToe & game)
 {
 	for (int i = 0; i < 9; i++)
 	{
 		if (i == 2 || i == 5 || i == 8)
 		{
-			cout << pegs[i] << "\n";
-		}
+			out << game.pegs[i] << "\n";
+		}    
 		else
 		{
-			cout << pegs[i] << "|";
+			out << game.pegs[i] << "|";
 		}
 	}
+	return out;
+}
+
+istream & operator>>(istream & in, TicTacToe & game)
+{
+	int position;
+	cout << "Enter position for " << game.get_player() << ": ";
+	in >> position;
+
+	while (position < 1 || position > 9)
+	{
+		cout << "Invalid position. Please enter a number 1-9: ";
+		in >> position;
+	}
+
+	game.mark_board(position);
+
+	return in;
 }
