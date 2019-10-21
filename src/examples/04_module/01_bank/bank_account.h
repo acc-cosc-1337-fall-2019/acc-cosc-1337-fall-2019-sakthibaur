@@ -9,7 +9,7 @@ class BankAccount
 public:
 	BankAccount();
 	BankAccount(int b) : balance(b) {};//inline constructor
-	int get_balance() const; //const makes class memebers read only
+	virtual int get_balance() const; //const makes class memebers read only
 	void deposit(int amount);
 	void withdraw(int amount);
 	friend void display(const BankAccount& account);
