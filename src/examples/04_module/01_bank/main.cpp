@@ -1,3 +1,4 @@
+#include<functional>
 #include<iostream>
 #include<vector>
 #include"checking_account.h"
@@ -8,10 +9,26 @@
 
 using std::cout; using std::cin;
 using std::vector;
+using std::reference_wrapper;
 
 int main()
 {
-	CheckingAccount checking(1500);
+	CheckingAccount c(1500);
+	SavingsAccount s(500);
+
+	vector<reference_wrapper<BankAccount>> accounts{c,s};
+
+	for (auto act : accounts)
+	{
+		cout << "Balance: " << act.get().get_balance() << "\n";
+	}
+	return 0;
+
+
+
+	//code from older examples below-
+	//cout << "Calls bank account overload ostream"<<savings;
+	/*	CheckingAccount checking(1500);
 	cout << "\n Checking get_balance: " << checking.get_balance() << "\n";
 
 	SavingsAccount savings(500);
@@ -19,13 +36,7 @@ int main()
 
 	BankAccount& account = savings;
 	cout << "\n Ref to savings get_balance: " << account.get_balance() << "\n";
-	return 0;
-
-
-
-	//code from older examples below-
-	//cout << "Calls bank account overload ostream"<<savings;
-	/*	cout << a;
+	cout << a;
 
 	savings.add_interest();
 	cout << savings;
