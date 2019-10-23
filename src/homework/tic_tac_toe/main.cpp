@@ -1,9 +1,11 @@
 #include "tic_tac_toe.h"
+#include "tic_tac_toe_manager.h"
 
 int main() 
 {
 	auto user_choice = 1;
 	string player;
+	TicTacToeManager manager;
 
 	do
 	{
@@ -26,10 +28,14 @@ int main()
 
 		} while (game.game_over() == false);
 		//need to add code to display winner/no winner, displays winner even when there is no winner
+		manager.save_game(game);
 		cout << "Winner\nEnter 1 to play again, any other key to exit: ";
 		cin >> user_choice;
 
 	} while (user_choice == 1);
+
+	cout << "History: \n";
+	cout << manager;
 
 	cout << "Goodbye!";
 
