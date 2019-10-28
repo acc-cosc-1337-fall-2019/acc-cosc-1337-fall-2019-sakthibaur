@@ -1,19 +1,35 @@
-#include<functional>
+//#include<functional>
 #include<iostream>
-#include<vector>
-#include"checking_account.h"
-#include "savings_account.h"
+//#include<vector>
+//#include"checking_account.h"
+//#include "savings_account.h"
 //#include "bank_account.h"
 //#include "atm.h"
 //#include "customer.h"
 
-using std::cout; using std::cin;
-using std::vector;
-using std::reference_wrapper;
+using std::cout; //using std::cin;
+//using std::vector;
+//using std::reference_wrapper;
 
 int main()
 {
-	CheckingAccount c(1500);
+
+	int num = 5;
+	int & num_ref = num; //get the address of num
+	std::cout << "Address: " << &num_ref << std::endl; //output address
+	std::cout << "Value at above address: " << num_ref << std::endl; //output value at address of num
+	
+	int * val_ = &num_ref; //point to the address of num
+	std::cout << "Address pointed to: " << val_ << std::endl; //get the address of num
+	std::cout << "Value pointed to: " << *val_ << std::endl; //get the value pointed to by val_
+
+	*val_ = 15;
+	std::cout << "Address pointed to: " << val_ << std::endl; //get the address of num
+	std::cout << "Value pointed to: " << *val_ << std::endl; //get the value pointed to by val_
+	return 0;
+	//code from older examples below-
+	//cout << "Calls bank account overload ostream"<<savings;
+	/*		CheckingAccount c(1500);
 	SavingsAccount s(500);
 
 	vector<reference_wrapper<BankAccount>> accounts{c,s};
@@ -22,13 +38,8 @@ int main()
 	{
 		cout << "Balance: " << act.get().get_balance() << "\n";
 	}
-	return 0;
-
-
-
-	//code from older examples below-
-	//cout << "Calls bank account overload ostream"<<savings;
-	/*	CheckingAccount checking(1500);
+	
+	CheckingAccount checking(1500);
 	cout << "\n Checking get_balance: " << checking.get_balance() << "\n";
 
 	SavingsAccount savings(500);
