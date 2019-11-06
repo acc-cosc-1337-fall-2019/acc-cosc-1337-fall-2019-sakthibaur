@@ -6,12 +6,11 @@
 
 using std::cout; using std::cin; using std::string;
 
-
-int main() 
+int main()
 {
-	auto user_choice = 1;
-	string player;
+	char cont = 'y';
 	TicTacToeManager manager;
+	string player;
 	int game_type;
 
 	do
@@ -32,13 +31,6 @@ int main()
 		cout << "Enter X or O";
 		cin >> player;
 
-		while (player != "X" && player != "O")
-		{
-			cout << "Invalid player selection. Please enter X or O: ";
-			cin >> player;
-		}
-
-		//start game
 		game->start_game(player);
 
 		while (game->game_over() == false)
@@ -50,15 +42,14 @@ int main()
 		manager.save_game(*game);
 
 		cout << "Game over: ";
-		cout << "Enter 1 to play again, any other key to exit: ";
-		cin >> user_choice;
 
-	} while (user_choice == 1);
+		cout << "Play again y";
+		cin >> cont;
+
+	} while (cont == 'y' || cont == 'Y');
 
 	cout << "History: \n";
 	cout << manager;
-
-	cout << "Goodbye!";
 
 	return 0;
 }

@@ -6,13 +6,13 @@
 #include "line.h"
 #include "circle.h"
 
-int main() 
+int main()
 {
 	//Shape s_abtract; can't create instance; pure virtual
 	//function makes it an abstract class
 
 	Shape* line = new Line();//creates dynamic memory (heap)
-	line->draw(); //executes draw function from derived class (line)
+	line->draw();
 	delete line;
 
 	std::vector < Shape *> shapes{ new Line(), new Circle() };
@@ -22,7 +22,6 @@ int main()
 		shape->draw();
 	}
 	std::cout << std::endl;
-
 	for (auto * shape : shapes)
 	{
 		shape->draw();

@@ -13,11 +13,13 @@ bool TicTacToe3::check_column_win()
 {
 	for (std::size_t i = 0; i < 3; i++)
 	{
-		if (pegs[i] == pegs[i + 3] && pegs[i + 3] == pegs[i + 6] && pegs[i + 6] != " ")
+		if (pegs[i] == pegs[i + 3] && pegs[i + 3] == pegs[i + 6]
+			&& pegs[i + 6] != " ")
 		{
 			return true;
 		}
 	}
+
 	return false;
 }
 
@@ -29,7 +31,6 @@ Win by row if
 3,4,5 are equal
 6,7,8 are equal
 */
-
 bool TicTacToe3::check_row_win()
 {
 	for (std::size_t i = 0; i < 9; i += 3)
@@ -39,8 +40,12 @@ bool TicTacToe3::check_row_win()
 			return true;
 		}
 	}
+
 	return false;
+
 }
+
+
 
 /*
 class function check_diagonal_win
@@ -48,20 +53,15 @@ Win diagonally
 0 1 2
 3 4 5
 6 7 8
-
 */
 bool TicTacToe3::check_diagonal_win()
 {
-	if (pegs[0] == pegs[4] && pegs[4] == pegs[8] && pegs[0] != " ")
+	if (pegs[0] == pegs[4] && pegs[4] == pegs[8] && pegs[0] != " " ||
+		pegs[2] == pegs[4] && pegs[4] == pegs[6] && pegs[2] != " ")
 	{
 		return true;
 	}
-	else if (pegs[2] == pegs[4] && pegs[4] == pegs[6] && pegs[2] != " ")
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
+
+	return false;
+
 }

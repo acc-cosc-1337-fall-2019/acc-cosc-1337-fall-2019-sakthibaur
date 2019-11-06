@@ -1,7 +1,8 @@
-#include "tic_tac_toe.h"
 //cpp
+#include<iostream>
+#include "tic_tac_toe.h"
 
-
+using std::cout;
 
 bool TicTacToe::game_over()
 {
@@ -26,7 +27,10 @@ void TicTacToe::start_game(string player)
 	clear_board();
 }
 
-
+/*
+Remember position is what user sees.
+When you save position to vector subtract 1 from position
+*/
 void TicTacToe::mark_board(int position)
 {
 	pegs[position - 1] = next_player;
@@ -72,10 +76,9 @@ istream& operator>>(istream& in, TicTacToe& t)
 	return in;
 }
 
-
 void TicTacToe::set_next_player()
 {
-	if(next_player=="X")
+	if (next_player == "X")
 	{
 		next_player = "O";
 	}
@@ -102,12 +105,23 @@ bool TicTacToe::check_diagonal_win()
 
 void TicTacToe::clear_board()
 {
-	vector<string> pegs{ 9, " " };
+	for (auto& peg : pegs)
+	{
+		peg = " ";
+	}
 }
 
 bool TicTacToe::check_board_full()
 {
-	return !(std::find(pegs.begin(), pegs.end(), " ")!=pegs.end());
+	for (auto peg : pegs)
+	{
+		if (peg == " ")
+		{
+			return false;
+		}
+	}
+
+	return true;
 }
 
 void TicTacToe::set_winner()
@@ -121,5 +135,3 @@ void TicTacToe::set_winner()
 		winner = "X";
 	}
 }
-
-

@@ -9,8 +9,8 @@ ostream & operator<<(ostream & out, const TicTacToeManager & m)
 		out << game << "\n";
 	}
 
-	out << "X wins: " << m.x_wins << "\n";
-	out << "O wins: " << m.o_wins << "\n";
+	out << "X wins: " << m.x_win << "\n";
+	out << "O wins: " << m.o_win << "\n";
 	out << "CAT: " << m.ties << "\n";
 
 	return out;
@@ -26,11 +26,11 @@ void TicTacToeManager::update_winner_count(string winner)
 {
 	if (winner == "X")
 	{
-		x_wins++;
+		x_win++;
 	}
 	else if (winner == "O")
 	{
-		o_wins++;
+		o_win++;
 	}
 	else
 	{

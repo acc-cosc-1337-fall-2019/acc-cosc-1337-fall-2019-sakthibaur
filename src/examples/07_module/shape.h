@@ -7,9 +7,7 @@ using std::cout;
 class Shape
 {
 public:
-	//virtual void draw() {} //virtual function
-	virtual void draw() = 0; //pure virtual fuction, makes Shape an abstract class-can't make an instance of it
-
+	virtual void draw() = 0;//pure virtual function, abstract class
 };
 
-#endif // !SHAPE_H
+#endif
