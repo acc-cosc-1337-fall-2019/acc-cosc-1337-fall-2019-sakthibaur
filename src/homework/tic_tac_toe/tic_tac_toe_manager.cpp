@@ -6,8 +6,9 @@ ostream & operator<<(ostream & out, const TicTacToeManager & m)
 {
 	for (auto game : m.games)
 	{
-		out << game;
+		out << game << "\n";
 	}
+
 	out << "X wins: " << m.x_wins << "\n";
 	out << "O wins: " << m.o_wins << "\n";
 	out << "CAT: " << m.ties << "\n";
@@ -15,7 +16,7 @@ ostream & operator<<(ostream & out, const TicTacToeManager & m)
 	return out;
 }
 
-void TicTacToeManager::save_game(const TicTacToe game)
+void TicTacToeManager::save_game(TicTacToe& game)
 {
 	update_winner_count(game.get_winner());
 	games.push_back(game);
@@ -35,5 +36,4 @@ void TicTacToeManager::update_winner_count(string winner)
 	{
 		ties++;
 	}
-
 }
