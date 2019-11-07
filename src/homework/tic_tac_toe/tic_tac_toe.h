@@ -26,9 +26,9 @@ public:
 	friend istream& operator>>(istream& in, TicTacToe& t);
 
 protected:
-	virtual bool check_column_win();
-	virtual bool check_row_win();
-	virtual bool check_diagonal_win();
+	virtual bool check_column_win()=0;
+	virtual bool check_row_win()=0;
+	virtual bool check_diagonal_win()=0;
 	vector<string> pegs;
 
 private:
