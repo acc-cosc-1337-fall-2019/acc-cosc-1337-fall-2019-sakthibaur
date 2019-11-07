@@ -22,6 +22,7 @@ public:
 	void mark_board(int position);
 	string get_player() const;
 	string get_winner()const;
+	const std::vector<std::string>& get_pegs();
 	friend ostream& operator<<(ostream& out, const TicTacToe& t);
 	friend istream& operator>>(istream& in, TicTacToe& t);
 
