@@ -2,6 +2,12 @@
 #include<iostream>
 //
 
+Vector::Vector()
+	:size{0}, nums{nullptr}, space{0}
+{
+
+}
+
 Vector::Vector(size_t sz)
 	:size{sz}, nums{new int[sz]}
 {
@@ -20,8 +26,25 @@ Vector::Vector(const Vector & v)
 	}
 }
 
-Vector & Vector::operator=(const Vector & v)
+Vector & Vector::operator=(const Vector & v) //copy assignment
 {
+	if (this == &v)//if object is trying to copy itself, don't change anything, just return pointer
+	{
+		return *this; //avoids self copy
+	}
+
+	/*if (v.space <= space)
+	{
+		for (size_t i = 0; i < v.size; ++i)
+		{
+			nums[i] = v.nums[i];
+		}
+
+		size = v.size;
+
+		return *this;
+	}*/
+
 	int* temp = new int[v.size]; //creating temporary array (copy) of same size and values
 	
 	for (size_t i = 0; i < v.size; ++i)
@@ -32,9 +55,11 @@ Vector & Vector::operator=(const Vector & v)
 	delete[] nums;
 	nums = temp;
 	size = v.size;
+	space = v.size; //could also do size=space=v.size;
 	
 	return *this; //returning this instance of object at this instant
 }
+
 
 Vector::Vector(Vector && v)//move constructor
 	:size{v.size}, nums{v.nums}
@@ -52,6 +77,53 @@ Vector & Vector::operator=(Vector && v)//move assignment
 	v.size = 0;
 
 	return *this;
+}
+
+void Vector::Reserve(size_t new_allocation)
+{
+	if (new_allocation <= space)
+	{
+		return;
+	}
+
+	int* temp = new int[new_allocation];
+
+	for (size_t i = 0; i < size; ++i)
+	{
+		temp[i] = nums[i];
+	}
+
+	delete[] nums;
+	nums = temp;
+	
+	space = new_allocation;
+
+}
+
+
+void Vector::Resize(size_t new_size)
+{
+	Reserve(new_size);
+
+	for (size_t i = 0; i < new_size; ++i)
+	{
+		nums[i] = 0;
+	}
+}
+
+void Vector::Push_Back(int value)
+{
+	if (space == 0)
+	{
+		Reserve(RESERVE_DEFAULT_SIZE);
+	}
+	else if (size == space)
+	{
+		Reserve(RESERVE_SPACE_MULTIPLIER*space);
+	}
+
+	nums[size] = value;
+	++size;
 }
 
 Vector::~Vector()

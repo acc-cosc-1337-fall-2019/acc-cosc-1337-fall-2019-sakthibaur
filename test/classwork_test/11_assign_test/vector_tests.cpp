@@ -48,3 +48,31 @@ TEST_CASE("Test return Vector by value")
 
 	REQUIRE(v.Size() == 3);
 }
+
+TEST_CASE("Test reserve function new allocation")
+{
+	Vector v;
+	REQUIRE(v.Capacity() == 0);
+
+	v.Reserve(8);
+	REQUIRE(v.Capacity() == 8);
+}
+
+TEST_CASE("Test resize function new size")
+{
+	Vector v;
+	REQUIRE(v.Capacity() == 0);
+	v.Resize(10);
+
+	REQUIRE(v.Capacity() == 10);
+}
+
+TEST_CASE("Test push back w default constructor")
+{
+	Vector v;
+	REQUIRE(v.Size() == 0);
+	v.Push_Back(3);
+
+	REQUIRE(v.Size() == 1);
+	REQUIRE(v[0] == 3);
+}
