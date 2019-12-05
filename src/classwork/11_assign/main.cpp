@@ -8,11 +8,6 @@ int main()
 	v[0] = 2.5;
 
 	std::cout << v[0];
-	//Vector*v = new Vector(3);
-	//delete v;
-
-	//Vector v(1);
-	//v = get_vector();
 
 	return 0;
 }
@@ -20,7 +15,5 @@ int main()
 Vector get_vector()
 {
 	Vector v(3);
-
 	return v;
-}
-*/
+}*/

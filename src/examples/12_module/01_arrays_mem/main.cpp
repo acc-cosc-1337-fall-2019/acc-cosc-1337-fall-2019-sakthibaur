@@ -1,9 +1,9 @@
+#include "arrays_mem.h"
 
-
-int main() 
+int main()
 {
+	stack_array();
 
-	
 
 	return 0;
 

@@ -6,25 +6,25 @@ TEST_CASE("Verify Test Configuration", "verification") {
 	REQUIRE(true == true);
 }
 
-TEST_CASE("Test vector class copy with stack variables")
+TEST_CASE("Test vector class copy w stack variables")
 {
 	Vector<int> v(5);
 	Vector<int> v2 = v;
 
 	REQUIRE(v.Size() == v2.Size());
-
 }
 
-TEST_CASE("Test vector class copy with heap(dynamic) variables")
+TEST_CASE("Test vector class copy w heap(dynamic) variables")
 {
 	Vector<int> v(5);
 	Vector<int> v2 = v;
 	v[1] = 5;
 
 	REQUIRE(v[1] != v2[1]);
+
 }
 
-TEST_CASE("Test vector class copy with 2 instances of Vector")
+TEST_CASE("Test vector class copy 2 instances of Vector")
 {
 	Vector<int> v(3);
 	Vector<int> v2(2);
@@ -47,6 +47,7 @@ TEST_CASE("Test return Vector by value")
 	v = get_vector();
 
 	REQUIRE(v.Size() == 3);
+
 }
 
 TEST_CASE("Test reserve function new allocation")
@@ -71,6 +72,7 @@ TEST_CASE("Test push back w default constructor")
 {
 	Vector<int> v;
 	REQUIRE(v.Size() == 0);
+
 	v.Push_Back(3);
 
 	REQUIRE(v.Size() == 1);

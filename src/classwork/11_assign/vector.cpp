@@ -1,16 +1,14 @@
 #include "vector.h"
-#include<iostream>
-
-//
 template<typename T>
 Vector<T>::Vector()
-	:size{0}, nums{nullptr}, space{0}
+	: size{ 0 }, nums{ nullptr }, space{ 0 }
 {
 
 }
+//
 template<typename T>
 Vector<T>::Vector(size_t sz)
-	:size{sz}, nums{new T[sz]}, space{sz}
+	: size{ sz }, nums{ new T[sz] }, space{ sz }
 {
 	for (size_t i = 0; i < sz; ++i)
 	{
@@ -18,8 +16,8 @@ Vector<T>::Vector(size_t sz)
 	}
 }
 template<typename T>
-Vector<T>::Vector(const Vector<T> & v)
-	:size{ v.size }, nums{ new T[v.size] }, space{v.size}
+Vector<T>::Vector(const Vector<T>& v)
+	: size{ v.size }, nums{ new T[v.size] }, space{ v.size }
 {
 	for (size_t i = 0; i < size; ++i)
 	{
@@ -27,11 +25,11 @@ Vector<T>::Vector(const Vector<T> & v)
 	}
 }
 template<typename T>
-Vector<T>& Vector<T>::operator=(const Vector<T> & v) //copy assignment
+Vector<T>& Vector<T>::operator=(const Vector<T>& v)
 {
-	if (this == &v)//if object is trying to copy itself, don't change anything, just return pointer
+	if (this == &v) //avoid self copy
 	{
-		return *this; //avoids self copy
+		return *this;
 	}
 
 	if (v.size <= space)
@@ -46,8 +44,8 @@ Vector<T>& Vector<T>::operator=(const Vector<T> & v) //copy assignment
 		return *this;
 	}
 
-	T* temp = new T[v.size]; //creating temporary array (copy) of same size and values
-	
+	T* temp = new T[v.size];
+
 	for (size_t i = 0; i < v.size; ++i)
 	{
 		temp[i] = v[i];
@@ -56,13 +54,13 @@ Vector<T>& Vector<T>::operator=(const Vector<T> & v) //copy assignment
 	delete[] nums;
 	nums = temp;
 	size = v.size;
-	space = v.size; //could also do size=space=v.size;
-	
-	return *this; //returning this instance of object at this instant
+	space = v.size;
+
+	return *this;
 }
 template<typename T>
-Vector<T>::Vector(Vector<T> && v)//move constructor
-	:size{v.size}, nums{v.nums}
+Vector<T>::Vector(Vector<T>&& v)//move constructor
+	: size{ v.size }, nums{ v.nums }
 {
 	v.size = 0;
 	v.nums = nullptr;
@@ -95,9 +93,8 @@ void Vector<T>::Reserve(size_t new_allocation)
 
 	delete[] nums;
 	nums = temp;
-	
-	space = new_allocation;
 
+	space = new_allocation;
 }
 template<typename T>
 void Vector<T>::Resize(size_t new_size)
@@ -120,7 +117,7 @@ void Vector<T>::Push_Back(T value)
 	}
 	else if (size == space)
 	{
-		Reserve(RESERVE_SPACE_MULTIPLIER*space);
+		Reserve(RESERVE_SPACE_MULTIPLIER * space);
 	}
 
 	nums[size] = value;
@@ -129,7 +126,6 @@ void Vector<T>::Push_Back(T value)
 template<typename T>
 Vector<T>::~Vector()
 {
-	std::cout << "delete array...";
 	delete[] nums;
 }
 
