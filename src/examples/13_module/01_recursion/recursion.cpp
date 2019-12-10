@@ -2,6 +2,13 @@
 #include<iostream>
 //
 
+//this will create an infinite recursive call
+void call_myself()
+{
+	call_myself();
+}
+
+
 void display(int n)
 {
 	if (n == 0) 
